@@ -1,0 +1,135 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-auth.js"></script>
+</head>
+
+<body>
+  <title>BookSMART</title>
+
+  <img src="img/logo.png" style="width: 180px; margin-top: 10px;" />
+
+  <!-- NAVBAR -->
+  <nav class="z-depth-0 grey lighten-4">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="logged-in">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+        </li>
+        <li class="logged-in">
+          <a href="#" class="grey-text" id="logout">Logout</a>
+        </li>
+        <li class="logged-out">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+        </li>
+        <li class="logged-out">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+        </li>
+        </span>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4>
+      <form id="signup-form">
+        <div class="inputt-field">
+          <h5>Choose Email address and password:</h5>
+          <input type="email" id="signup-email" required />
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+        </div>
+        <button>Sign up</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4>
+      <br />
+      <div class="account-details"></div>
+      <div class="account-extras"></div>
+    </div>
+  </div>
+
+  <h1>BookSMART</h1>
+
+  <div class="content">
+    <form id="add-bookmark-form">
+      <input type="text" name="name" placeholder="The Name of The Book/Series" />
+      <input type="text" name="author" placeholder="The Name of Author/Broadcast Network" />
+      <input type="text" name="start" placeholder="Start date of reading/watching" />
+      <input type="text" name="last" placeholder="Last date of reading/watching" />
+      <input type="text" name="gener" placeholder="Gener" />
+      <input type="text" name="review" placeholder="Review" />
+      <input type="text" name="series" placeholder="Series? (true or fals)" />
+      <input type="text" name="rating" placeholder="Rating" />
+      <input type="text" name="curent" placeholder="Current page/chapter" />
+
+      <input type="text" name="total" placeholder="Total pages/chapters" />
+
+      <button>Add Bookmark</button>
+    </form>
+
+    <ul id="bookmark-list"></ul>
+  </div>
+
+  <script>
+    // Web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyC_jfmxeTHxfrvsGv5ZSuZ9S5x704YtZSA",
+      authDomain: "booksmartt-ce2bf.firebaseapp.com",
+      databaseURL: "https://booksmartt-ce2bf.firebaseio.com",
+      projectId: "booksmartt-ce2bf",
+      storageBucket: "",
+      messagingSenderId: "567998179836",
+      appId: "1:567998179836:web:f183b7f0d4f446003dea79",
+      measurementId: "G-X70C7RJ29X"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // make auth reference
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+  <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>
